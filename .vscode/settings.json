@@ -1,3 +1,4 @@
 {
-    "discord-chat.setUpIfDiscordChaStartWhenVSCodeOpened": true
+    "discord-chat.setUpIfDiscordChaStartWhenVSCodeOpened": true,
+    "java.configuration.updateBuildConfiguration": "automatic"
 }
