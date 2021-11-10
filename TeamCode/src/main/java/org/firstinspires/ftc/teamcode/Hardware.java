@@ -6,20 +6,9 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
-public class vitiHardware {
-    DcMotor frontright;
-    DcMotor frontleft;
-    DcMotor backright;
-    DcMotor backleft;
-    DcMotor lift;
-    DcMotor intakeright;
-    DcMotor intakeleft;
-    DcMotor spool;
-
-    Servo claw;
-    Servo flipper;
-    Servo swivel;
-
+public class FreightFrenzyHardware {
+    DcMotor right;
+    DcMotor left;
 
     public void init(HardwareMap hardwareMap) {
         left = hardwareMap.get(DcMotor.class,  "left");
