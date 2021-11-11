@@ -33,54 +33,18 @@ public class FreightFrenzyTeleop extends LinearOpMode {
                 right.setPower(0);
              
             } else {
-                left.setPower(scaleInput(-turn + drive));
-                right.setPower(scaleInput(strafe + turn + drive));
+                left.setPower(scaleInput(drive - turn));
+                right.setPower(scaleInput(drive + turn));
                 //backLeft.setPower(scaleInput(strafe - turn + drive));
                 //backRight.setPower(scaleInput(-strafe + turn + drive));
             }
-
-            if (gamepad1.dpad_up) {
-                lift.setPower(1);
-
-            } else if (gamepad1.dpad_down) {
-                lift.setPower(-1);
-
-            } else {
-                lift.setPower(0);
-
-            }
-
-            if (gamepad1.a) {
-                claw.setPower(-1);
-            } else if (gamepad1.b) {
-                claw.setPower(1);
-            } else {
-                claw.setPower(0);
-            }
-
-            if (gamepad1.x) {
-                slide.setPower(-1);
-            } else if (gamepad1.y) {
-                slide.setPower(1);
-            } else {
-                slide.setPower(0);
-            }
-
-            if (gamepad1.dpad_left) {
-                tray.setPower(1);
-            } else if (gamepad1.dpad_right) {
-                tray.setPower(-1);
-            } else {
-                tray.setPower(0);
-            }
+ 
       /*
       IMPORTANT TELEMETRY FOR DEBUGGING
        */
-            telemetry.addData("Front Power", "left (%.2f), right (%.2f)", frontLeft.getPower(), frontRight.getPower());
-            telemetry.addData("Back Power", "left (%.2f), right (%.2f)", backLeft.getPower(), backRight.getPower());
-            telemetry.addData("Claw Power %.2f", claw.getPower());
-            telemetry.addData("Slide Power %.2f", slide.getPower());
-            telemetry.addData("Tray Power %.2f", tray.getPower());
+            telemetry.addData("Right Power", "right (%.2f)", right.getPower();
+            telemetry.addData("Left Power", "left (%.2f)", left.getPower();
+           
             telemetry.update();
         }
     }
