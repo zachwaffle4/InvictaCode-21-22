@@ -20,7 +20,7 @@ public class FreightFrenzyTeleop extends LinearOpMode {
         waitForStart();
 
         while (opModeIsActive()) {
-            //left stick controls directionm,
+            //left stick controls direction,
             //right stick X controls rotation
 
             double drive = -gamepad1.left_stick_y;//cl
@@ -28,12 +28,15 @@ public class FreightFrenzyTeleop extends LinearOpMode {
 
             double speed = scaleInput(drive);
 
+            double leftPower = scaleInput(drive + turn);
+            double rightPower = -leftPower;
+
             if (gamepad1.left_stick_button || gamepad1.right_stick_button) {
                 left.setPower(0);
                 right.setPower(0);
             } else {
-                left.setPower(scaleInput(drive - turn));
-                right.setPower(scaleInput(drive + turn));
+                left.setPower(leftPower);
+                right.setPower(rightPower);
             }
 
       /*
@@ -59,9 +62,8 @@ public class FreightFrenzyTeleop extends LinearOpMode {
         int index = (int) (dval * 16.0);
 
         //index should be positive
-        if(index < 0){
-            index = 16;
-        }
+        index = Math.abs(index);
+
         if (index > 16) {
             index = 16;
         }
