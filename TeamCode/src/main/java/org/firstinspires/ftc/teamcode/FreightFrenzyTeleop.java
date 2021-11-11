@@ -11,40 +11,39 @@ public class FreightFrenzyTeleop extends LinearOpMode {
     @Override
     public void runOpMode() {
 
-        left = hardwareMap.dcMotor.get("Left");
-        right = hardwareMap.dcMotor.get("Right");
-        
+        DcMotor left = hardwareMap.dcMotor.get("Left");
+        DcMotor right = hardwareMap.dcMotor.get("Right");
+
         left.setDirection(DcMotor.Direction.REVERSE);
         right.setDirection(DcMotor.Direction.FORWARD);
 
         waitForStart();
 
         while (opModeIsActive()) {
-            //left stick controls direction
+            //left stick controls direction,
             //right stick X controls rotation
 
-            double drive = gamepad1.left_stick_y;//cl
+            double drive = -gamepad1.left_stick_y;//cl
             double turn = gamepad1.left_stick_x;//cl
-            
+
             double speed = scaleInput(drive);
+
+            double leftPower = scaleInput(drive + turn);
+            double rightPower = -leftPower;
 
             if (gamepad1.left_stick_button || gamepad1.right_stick_button) {
                 left.setPower(0);
                 right.setPower(0);
-             
             } else {
-                left.setPower(scaleInput(drive - turn));
-                right.setPower(scaleInput(drive + turn));
-                //backLeft.setPower(scaleInput(strafe - turn + drive));
-                //backRight.setPower(scaleInput(-strafe + turn + drive));
+                left.setPower(leftPower);
+                right.setPower(rightPower);
             }
- 
+
       /*
       IMPORTANT TELEMETRY FOR DEBUGGING
        */
-            telemetry.addData("Right Power", "right (%.2f)", right.getPower();
-            telemetry.addData("Left Power", "left (%.2f)", left.getPower();
-           
+            telemetry.addData("Right Power", "right (%.2f)", right.getPower());
+            telemetry.addData("Left Power", "left (%.2f)", left.getPower());
             telemetry.update();
         }
     }
@@ -63,9 +62,8 @@ public class FreightFrenzyTeleop extends LinearOpMode {
         int index = (int) (dval * 16.0);
 
         //index should be positive
-        if(index < 0){
-            index = 16;
-        }
+        index = Math.abs(index);
+
         if (index > 16) {
             index = 16;
         }
