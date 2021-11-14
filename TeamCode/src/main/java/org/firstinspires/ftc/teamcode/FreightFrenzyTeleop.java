@@ -30,7 +30,7 @@ public class FreightFrenzyTeleop extends LinearOpMode {
 
             double leftPower = scaleInput(drive + turn);
 
-            double rightPower = -leftPower;
+            double rightPower = scaleInput(drive - turn);
 
 
             if (gamepad1.left_stick_button || gamepad1.right_stick_button) {
