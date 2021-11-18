@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-@TeleOp(name = "Actual Tele-Op", group = "Skystone")
+@TeleOp(name = "Actual Tele-Op", group = "robot")
 public class FreightFrenzyTeleop extends LinearOpMode {
 
     @Override
