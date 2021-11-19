@@ -34,7 +34,7 @@ import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.har
 
 @SuppressWarnings({"JavaDoc", "unused", "SameParameterValue", "SpellCheckingInspection"})
 @Autonomous(name = "FreightFrenzyAuton", group = "robot")
-class FreightFrenzyAuton {
+public class FreightFrenzyAuton extends LinearOpMode {
 
     OpenCvInternalCamera phoneCam;
     //FreightFrenzyBarcodeReader.RingDetectionPipeline pipeline;
@@ -59,6 +59,11 @@ class FreightFrenzyAuton {
     private static final double P_DRIVE_COEFF = 0.15; // Test other values later
 
     private ElapsedTime timer = new ElapsedTime();
+
+    @Override
+    public void runOpMode(){
+
+    }
 
 
 

@@ -19,8 +19,7 @@ public class zachTestAuton extends LinearOpMode
     // called when init button is  pressed.
 
     @Override
-    public void runOpMode() throws InterruptedException
-    {
+    public void runOpMode() throws InterruptedException {
         left = hardwareMap.dcMotor.get("Left");
         right = hardwareMap.dcMotor.get("Right");
 
@@ -34,37 +33,34 @@ public class zachTestAuton extends LinearOpMode
         waitForStart();
 
         telemetry.addData("Mode", "running");
+        telemetry.addData("Color and Side", "Blue on the Left");
         telemetry.update();
-
         // set both motors to 25% power.
 
-        left.setPower(0.25);
-        right.setPower(0.25);
+        left.setPower(0.5);
+        right.setPower(0.5);
 
-        sleep(2000);        // wait for 2 seconds.
+        sleep(2500);
 
-        // set motor power to zero to stop motors.
+        left.setPower(-0.5);
 
-        left.setPower(0.0);
-        right.setPower(0.0);
+        sleep(2500);
 
-        // set both motors to opposite power, turning left
+        left.setPower(.5);
 
-        left.setPower(0.25);
-        right.setPower(-0.25);
+        sleep(500);
 
-        sleep(2000);        // wait for 2 seconds.
+        right.setPower(-.5);
 
-        // set both motors to 25% power.
+        sleep(5000);
 
-        left.setPower(0.25);
-        right.setPower(0.25);
+        right.setPower(.5);
 
-        sleep(2000);        // wait for 2 seconds.
+        sleep(5000);
 
-        // set motor power to zero to stop motors.
+        left.setPower(0);
+        right.setPower(0);
 
-        left.setPower(0.0);
-        right.setPower(0.0);
+
     }
 }
