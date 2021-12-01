@@ -5,7 +5,8 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-@TeleOp(name = "Actual Tele-Op", group = "robot")
+
+@TeleOp(name = "Actual Tele-Op", group = "Freight Frenzy")
 public class FreightFrenzyTeleop extends LinearOpMode {
 
     @Override
@@ -20,6 +21,7 @@ public class FreightFrenzyTeleop extends LinearOpMode {
         waitForStart();
 
         while (opModeIsActive()) {
+
             //left joystick for driving
 
             double drive = -gamepad1.left_stick_y;//cl
@@ -28,7 +30,9 @@ public class FreightFrenzyTeleop extends LinearOpMode {
             double speed = scaleInput(drive);
 
             double leftPower = scaleInput(drive + turn);
+
             double rightPower = scaleInput(drive - turn);
+
 
             if (gamepad1.left_stick_button || gamepad1.right_stick_button) {
                 left.setPower(0);
